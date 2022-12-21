@@ -7,10 +7,10 @@
       <v-text-field v-model="data" placeholder="Enter Fetch Response Here"></v-text-field>
     </div>
     <button v-on:click="getRequest(data)">Format</button>
-    <!-- <div class="copy">
+    <div class="copy">
       <span class="material-symbols-outlined copybtn" v-on:click="copy()">content_copy</span>
-    </div> -->
-    <pre v-if="api !== ''" ref="input">
+    </div>
+    <pre v-if="api !== ''" id="input">
       <code>
         <p style="color:white">{{ req_method }} - {{ api }} <br/> BODY - {{ payload }}</p>
       </code>
@@ -58,11 +58,8 @@ const getRequest = (data: string) => {
 }
 
 const copy = () => {
-  navigator.clipboard.writeText(
-    `${req_method.value} - ${api}
-      BODY - ${payload}
-    `
-  );
+  let text: string = `${req_method.value} - ${api.value}\n BODY - ${payload.value} `
+  navigator.clipboard.writeText(text);
 }
 
 </script>
@@ -155,7 +152,7 @@ span {
 .copy {
   width: 600px;
   position: absolute;
-  top: 60%;
+  top: 59%;
   left: 29%;
   display: flex;
   justify-content: end;
