@@ -3,11 +3,11 @@
     <h1>
       API <span>FORMATTER</span>
     </h1>
-    <div class="input">
+    <div class="input" >
       <v-text-field v-model="data" placeholder="Enter Fetch Response Here"></v-text-field>
     </div>
     <button v-on:click="getRequest(data)">Format</button>
-    <div class="copy">
+    <div class="copy" v-if="api !== ''">
       <span class="material-symbols-outlined copybtn" v-on:click="copy()">content_copy</span>
     </div>
     <pre v-if="api !== ''" id="input">
